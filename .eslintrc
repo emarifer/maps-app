@@ -1,0 +1,47 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		"plugin:react/jsx-runtime",
+		"xo"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"globals": {
+		"JSX": true,
+		"NodeJS": true
+	},
+	"plugins": ["react", "react-hooks", "@typescript-eslint"],
+	"rules": {
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"capitalized-comments": ["error", "always", { "ignorePattern": "." }],
+		"no-warning-comments": [0, { "terms": ["TODO"], "location": "start" }],
+		"object-curly-spacing": [2, "always"],
+		"no-unused-expressions": [
+			2,
+			{ "allowTernary": true, "allowShortCircuit": true }
+		],
+		"arrow-parens": [2, "always"],
+		// "arrow-body-style": ["error", "as-needed"], // Puede no ser necesaria esta regla
+		"curly": ["error", "multi-line"],
+		"no-unused-vars": ["error", { "args": "none" }],
+		// "@typescript-eslint/no-non-null-assertion": "off",
+		"react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }]
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	}
+}

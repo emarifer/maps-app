@@ -1,0 +1,67 @@
+.loading-map {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	height: 100vh;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100vw;
+}
+
+.search-container {
+	display: flex;
+	flex-direction: column;
+	background-color: whitesmoke;
+	border-radius: 5px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+	left: 20px;
+	/* padding: 5px; */
+	position: relative;
+	top: 20px;
+	padding-top: 3rem;
+	max-width: 60vw;
+	max-height: 80vh;
+	overflow-y: scroll;
+	/* z-index: 999; */
+}
+
+.search-control {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	padding: 5px;
+	border-radius: 5px;
+	width: 45vw;
+	display: flex;
+	flex-direction: row;
+	column-gap: 1rem;
+	align-items: center;
+	z-index: 999;
+	background-color: white;
+}
+
+.show-icon {
+	color: #1976d2;
+	font-size: 1.7rem;
+	cursor: pointer;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.swal2-popup {
+	width: 30vw !important;
+	font-size: 13px !important;
+}
+
+@media screen and (max-width: 768px) {
+	.swal2-popup {
+		width: 65vw !important;
+		font-size: 11px !important;
+	}
+}
+
+/* MODIFICAR FORMATO DE SWEETALERT2. VER:
+	https://stackoverflow.com/questions/57079469/how-to-change-font-family-of-sweetalert#67784289
+ */
