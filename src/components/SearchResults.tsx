@@ -33,7 +33,7 @@ export const SearchResults = () => {
 	};
 
 	return isLoadingPlaces ? (
-		<div className="d-flex justify-content-center align-items-center flex-column">
+		<div className="d-flex justify-content-center align-items-center flex-column mt-5">
 			<div className="lds-ring">
 				<div></div>
 				<div></div>

@@ -71,7 +71,7 @@ export const MapProvider = ({ children }: Props) => {
 
 	const setMap = (map: Map) => {
 		const myLocationPopup = new Popup().setHTML(`
-			<h4>Esta es mi ubicación</h4>
+			<h5>Esta es mi ubicación</h5>
 			<p>En algún lugar de Sevilla…</p>
 		`);
 

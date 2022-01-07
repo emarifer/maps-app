@@ -1,16 +1,28 @@
 import { ChangeEvent, useContext, useRef } from 'react';
 import { SearchResults } from '.';
-import { PlacesContext } from '../context';
+import { MapContext, PlacesContext } from '../context';
 import { AiFillEye } from 'react-icons/ai';
 
 export const SearchBar = () => {
-	const { searchPlacesByTerms, setShowListPlaces, showListPlaces } = useContext(
-		PlacesContext,
-	);
+	const {
+		searchPlacesByTerms,
+		setShowListPlaces,
+		showListPlaces,
+		places,
+		isLoadingPlaces,
+	} = useContext(PlacesContext);
+
+	const { map } = useContext(MapContext);
 
 	const debounceRef = useRef<NodeJS.Timeout>();
 
 	const onQueryChanged = (event: ChangeEvent<HTMLInputElement>) => {
+		// Elimina las polyline al volver a escribir en le input
+		if (map?.getLayer('RouteString')) {
+			map.removeLayer('RouteString');
+			map.removeSource('RouteString');
+		}
+
 		if (debounceRef.current) clearTimeout(debounceRef.current);
 
 		debounceRef.current = setTimeout(() => {
@@ -22,7 +34,7 @@ export const SearchBar = () => {
 	return (
 		<div
 			className="search-container"
-			style={showListPlaces ? {} : { paddingTop: '0px' }}
+			style={showListPlaces && places.length !== 0 ? {} : { paddingTop: '0px' }}
 		>
 			<div className="search-control">
 				<input
@@ -37,7 +49,7 @@ export const SearchBar = () => {
 				</div>
 			</div>
 
-			{showListPlaces && <SearchResults />}
+			{(isLoadingPlaces || showListPlaces) && <SearchResults />}
 		</div>
 	);
 };
